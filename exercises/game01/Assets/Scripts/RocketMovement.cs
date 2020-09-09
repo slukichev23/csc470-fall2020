@@ -13,6 +13,6 @@ public class RocketMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, 0.2f, 0);
+        transform.Translate(0, 1.0f, 0);
     }
 }
