@@ -13,6 +13,6 @@ public class UFOMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0.01f, 0, -0.002f);
+        transform.Translate(0.05f, 0, -0.0010f);
     }
 }
