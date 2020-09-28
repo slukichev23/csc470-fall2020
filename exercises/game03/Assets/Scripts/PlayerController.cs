@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     float rotateSpeed = 80f;
     GameObject player;
     public ParticleSystem fire;
+    Vector3 playerVelocity;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
 
         Rigidbody rb = GetComponent<Rigidbody>();
+        playerVelocity = rb.velocity;
         // Makes Astronaut jump
        
         //Debug.Log(rb.velocity);
@@ -72,5 +74,8 @@ public class PlayerController : MonoBehaviour
 
 
 
+
     }
+
+    
 }
