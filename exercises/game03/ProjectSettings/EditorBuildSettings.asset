@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GameOfLifeDemo.unity
+    guid: 798c0b7aabd684d9781bc6ba04376561
   m_configObjects: {}
