@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
     float movementSpeed = 5f;
     float jetPackSpeed = 1f;
     float jetPackFuel = 5f;
-    float jetPackAcceleration = 0.1f;
-    float jetPackDecceleration = 0.075f;
+    float jetPackAcceleration = 0.3f;
+    float jetPackDecceleration = 0.15f;
     float rotateSpeed = 80f;
     GameObject player;
     public ParticleSystem fire;
