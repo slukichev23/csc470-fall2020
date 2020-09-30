@@ -12,13 +12,25 @@ public class GameManager : MonoBehaviour
 	int gridWidth = 100;
 	int gridHeight = 100;
 
-	float cellDimension = 0.75f;
-	float padding = 0.05f;
+	float cellDimension = 0.9f;
+	float padding = 0.1f;
 
 	// These varaibles are used to control the rate that the grid updates itself
 	int time = 0;
 	float timer = 0;
 	float timerRate = 0.5f;
+
+	// Fuel & health pack generation timers
+	// using same time for health and fuel packs
+	public GameObject fuelPrefab;
+	public GameObject healthPrefab;
+	float makeFuelTimer = 5f;
+	float makeFuelRate = 5f;
+
+	public GameObject starPrefab;
+
+	// Center gameObject to generate stuff around
+	public GameObject centralLocation;
 
 	// Start is called before the first frame update
 	void Start()
@@ -39,6 +51,15 @@ public class GameManager : MonoBehaviour
 				grid[x, y] = cs;
 			}
 		}
+
+		// Creates star objects that player collects for points
+		for (int i = 0; i < 10; i++){
+			Vector3 pos = new Vector3(centralLocation.transform.position.x + Random.Range(-48, 48)
+									, centralLocation.transform.position.y + Random.Range(2, 48),
+									centralLocation.transform.position.z + Random.Range(-48, 48));
+			GameObject star = Instantiate(starPrefab, pos, Quaternion.identity);
+		}
+
 	}
 
 	// Update is called once per frame
@@ -51,6 +72,27 @@ public class GameManager : MonoBehaviour
 			
 			timer = timerRate;
 		}
+
+		// fuel pack generation
+		makeFuelTimer -= Time.deltaTime;
+		if (makeFuelTimer < 0){
+
+			Vector3 pos1 = new Vector3(centralLocation.transform.position.x + Random.Range(-45, 45)
+									, centralLocation.transform.position.y + Random.Range(3, 30),
+									centralLocation.transform.position.z + Random.Range(-45, 45));
+			GameObject fuel = Instantiate(fuelPrefab, pos1, Quaternion.identity);
+			Destroy(fuel, 25f);
+			Vector3 pos2 = new Vector3(centralLocation.transform.position.x + Random.Range(-48, 48)
+									, centralLocation.transform.position.y + Random.Range(17, 40),
+									centralLocation.transform.position.z + Random.Range(-48, 48));
+			GameObject health = Instantiate(healthPrefab, pos2, Quaternion.identity);
+			Destroy(health, 30f);
+
+			makeFuelTimer = makeFuelRate;
+		}
+
+
+
 	}
 	
 	void generateNextState()

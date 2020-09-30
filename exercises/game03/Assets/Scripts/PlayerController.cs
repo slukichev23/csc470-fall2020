@@ -4,23 +4,33 @@ using System.Security.Cryptography;
 using System.Security.Permissions;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     float movementSpeed = 5f;
+    float rotateSpeed = 80f;
+
     float jetPackBaseSpeed = 1f;
     float jetPackSpeed = 1f;
     float jetPackFuel = 10f;
-    float jetPackAcceleration = 0.3f;
-    float jetPackDecceleration = 0.22f;
-    float rotateSpeed = 80f;
+    float jetPackAcceleration = 0.15f;
+    float jetPackDecceleration = 0.11f;
+    public Text fuelText;
+    
     GameObject player;
+
     public ParticleSystem fire;
+
     Vector3 previousVelocity;
     Vector3 playerVelocity;
     int fallDamageThreshold = -2;
     int fallDamageMultiplier = 3;
     int playerHealth = 100;
+    public Text healthText;
+
+    int score = 0;
+    public Text scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +54,7 @@ public class PlayerController : MonoBehaviour
         	Debug.Log("Player has taken " + calculateFallDamage(previousVelocity.y) + " damage!");
         	playerHealth = playerHealth - calculateFallDamage(previousVelocity.y);
         	Debug.Log("New Health: " + playerHealth);
+        	healthText.text = playerHealth.ToString();
         }
 
         // Jetpack particles
@@ -58,6 +69,9 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && jetPackFuel > 0){
             jetPackSpeed += jetPackAcceleration;
             jetPackFuel -= Time.deltaTime;
+            if (jetPackFuel < 0){
+            	jetPackFuel = 0;
+            }
         	rb.AddForce(new Vector3(0f, 1f * jetPackSpeed, 0f));
         } 
         else if (jetPackFuel >= 0 && ((jetPackSpeed - jetPackDecceleration) > jetPackBaseSpeed)) {
@@ -78,6 +92,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.S)){
             transform.Translate(Vector3.back * Time.deltaTime * movementSpeed);
         }
+        // Updates Fuel
+        fuelText.text = (jetPackFuel * 10).ToString();
 
         // Stores this velocity as next update's previous velocity
         previousVelocity = rb.velocity;
@@ -109,6 +125,13 @@ public class PlayerController : MonoBehaviour
      		Debug.Log("+25 health!");
      		Debug.Log("New Health: " + playerHealth);
      		Destroy(other.gameObject);
+     		healthText.text = playerHealth.ToString();
+        } else if (other.gameObject.CompareTag("Star")){
+     		Debug.Log("+1 point!");
+     		score += 1;
+     		Debug.Log("Total points: " + score);
+     		Destroy(other.gameObject);
+     		scoreText.text = score.ToString();
         }
 
 
