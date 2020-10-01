@@ -109,9 +109,11 @@ public class PlayerController : MonoBehaviour
         previousVelocity = rb.velocity;
 
         if (playerHealth <= 0){
+        	playerHealth = -1;
         	SceneManager.LoadScene("gameOver");
         }
         if (score == 10){
+        	score = 0;
         	SceneManager.LoadScene("youWon");
         }
     }
