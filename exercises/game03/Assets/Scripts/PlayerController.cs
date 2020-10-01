@@ -5,6 +5,7 @@ using System.Security.Permissions;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class PlayerController : MonoBehaviour
     float rotateSpeed = 80f;
 
     float jetPackBaseSpeed = 1f;
-    float jetPackSpeed = 1f;
+    float jetPackSpeed = 10f;
     float jetPackFuel = 10f;
     float jetPackAcceleration = 0.15f;
     float jetPackDecceleration = 0.11f;
@@ -47,6 +48,12 @@ public class PlayerController : MonoBehaviour
         // Gets current velocity
         playerVelocity = rb.velocity;
 
+        // Death due to falling off into space:
+        if (player.transform.position.y < -20){
+        	healthText.text = playerHealth.ToString();
+        	playerHealth = 0;
+        }
+
         // Fall damage calculation
         // Added a tolerance of +/- 0.15f, otherwise it would only work half of the time because velocity doesn't always go to exactly 0
         if ((previousVelocity.y < fallDamageThreshold) && ((previousVelocity.y - playerVelocity.y > previousVelocity.y - 0.15f) && (previousVelocity.y - playerVelocity.y < previousVelocity.y + 0.15f) )){
@@ -54,6 +61,9 @@ public class PlayerController : MonoBehaviour
         	Debug.Log("Player has taken " + calculateFallDamage(previousVelocity.y) + " damage!");
         	playerHealth = playerHealth - calculateFallDamage(previousVelocity.y);
         	Debug.Log("New Health: " + playerHealth);
+        	if (playerHealth < 0){
+        		playerHealth = 0;
+        	}
         	healthText.text = playerHealth.ToString();
         }
 
@@ -97,6 +107,13 @@ public class PlayerController : MonoBehaviour
 
         // Stores this velocity as next update's previous velocity
         previousVelocity = rb.velocity;
+
+        if (playerHealth <= 0){
+        	SceneManager.LoadScene("gameOver");
+        }
+        if (score == 10){
+        	SceneManager.LoadScene("youWon");
+        }
     }
 
     int calculateFallDamage(float playerV){

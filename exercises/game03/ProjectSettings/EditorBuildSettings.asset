@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GameOfLifeDemo.unity
+    path: Assets/Scenes/SpaceGameOfLife.unity
     guid: 798c0b7aabd684d9781bc6ba04376561
+  - enabled: 1
+    path: Assets/Scenes/gameOver.unity
+    guid: 2d4198f267a3ecf4889a9a6794107438
+  - enabled: 1
+    path: Assets/Scenes/youWon.unity
+    guid: 5390863c311776547bfa3531bbaa306c
   m_configObjects: {}

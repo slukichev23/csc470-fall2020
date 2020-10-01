@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
 		if (makeFuelTimer < 0){
 
 			Vector3 pos1 = new Vector3(centralLocation.transform.position.x + Random.Range(-45, 45)
-									, centralLocation.transform.position.y + Random.Range(3, 30),
+									, centralLocation.transform.position.y + Random.Range(1, 30),
 									centralLocation.transform.position.z + Random.Range(-45, 45));
 			GameObject fuel = Instantiate(fuelPrefab, pos1, Quaternion.identity);
 			Destroy(fuel, 25f);
