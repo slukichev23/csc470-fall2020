@@ -6,8 +6,8 @@ public class PlatformMovement : MonoBehaviour
 {
 
 	float movementSpeed = 0.001f; // This variable changes
-	float baseMovementSpeed = 0.001f;
-	float movementSpeedSlowed = 0.0005f;
+	float baseMovementSpeed = 0.005f;
+	float movementSpeedSlowed = 0.0025f;
 	float moveTimer = 3f;
 	float moveRate = 3f;
 

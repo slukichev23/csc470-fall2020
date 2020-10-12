@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlatformVerticalMovement : MonoBehaviour
 {
     float movementSpeed = 0.001f; // This variable changes
-	float baseMovementSpeed = 0.001f;
-	float movementSpeedSlowed = 0.00075f;
+	float baseMovementSpeed = 0.005f;
+	float movementSpeedSlowed = 0.0025f;
 	float moveTimer = 2.5f;
 	float moveRate = 2.5f;
 
