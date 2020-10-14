@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlatformVerticalMovement : MonoBehaviour
 {
-    float movementSpeed = 0.001f; // This variable changes
-	float baseMovementSpeed = 0.005f;
-	float movementSpeedSlowed = 0.0025f;
+    float movementSpeed = 0.5f; // This variable changes
+	float baseMovementSpeed = 0.5f;
+	float movementSpeedSlowed = 0.5f;
 	float moveTimer = 2.5f;
 	float moveRate = 2.5f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class PlatformVerticalMovement : MonoBehaviour
     	// Timer 
     	moveTimer -= Time.deltaTime;
     	// Moves platform
-    	transform.Translate(Vector3.up * movementSpeed, Space.Self);
+    	transform.Translate(Vector3.up * movementSpeed * Time.deltaTime, Space.Self);
     	// Slow down a little bit before changing direction
     	if (moveTimer < 0.5f && moveTimer > 0f){
     		movementSpeed = (movementSpeed > 0) ? movementSpeedSlowed : movementSpeedSlowed * -1;
@@ -35,4 +36,20 @@ public class PlatformVerticalMovement : MonoBehaviour
         	moveTimer = moveRate;
         }
     }
+
+    //private void OnTriggerEnter(Collider other)
+	//{
+		//if (other.CompareTag("Player")) {
+			//PlayerController player = other.gameObject.GetComponent<PlayerController>();
+			//player.PlatformAttachedTo = this;
+		//}
+	//}
+	
+	//private void OnTriggerExit(Collider other)
+	//{
+		//if (other.CompareTag("Player")) {
+			//PlayerController player = other.gameObject.GetComponent<PlayerController>();
+			//player.PlatformAttachedTo = null;
+		//}
+	//}
 }

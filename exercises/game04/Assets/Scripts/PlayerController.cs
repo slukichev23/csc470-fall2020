@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	float moveSpeed = 5;
-	float rotateSpeed = 85;
+	float moveSpeed = 2.5f;
 
 	public CharacterController cc;
 
 	bool prevIsGrounded = false;
 
 	float yVelocity = 0;
-	float jumpForce = 0.1f;
-	float gravityModifier = 0.2f;
+	float jumpForce = 0.05f;
+	float gravityModifier = 0.04f;
+
+	public PlatformMovement PlatformAttachedTo;
 	
 	// Start is called before the first frame update
 	void Start()
@@ -24,17 +25,17 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		float hAxis = Input.GetAxis("Horizontal");
-		float vAxis = Input.GetAxis("Vertical");
+		//float hAxis = Input.GetAxis("Horizontal");
+		//float vAxis = Input.GetAxis("Vertical");
 
 		//--- ROTATION ---
 		//Rotate on the y axis based on the hAxis value
 		//NOTE: If the player isn't pressing left or right, hAxis will be 0 and there will be no rotation
-		transform.Rotate(0, hAxis * rotateSpeed * Time.deltaTime, 0);
+		
 
 
 		//--- DEALING WITH GRAVITY ---
-		if (!cc.isGrounded) { //If we go in this block of code, cc.isGrounded is false (that's what the ! does)
+		if (!cc.isGrounded) { //If we go in this block of code, cc.isGrounded is false
 			//If we're not on the ground, apply "gravity" to yVelocity
 			yVelocity = yVelocity + Physics.gravity.y * gravityModifier * Time.deltaTime;
 
@@ -66,19 +67,31 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 
-		//--- TRANSLATION ---
-		//Move the player forward based on the vAxis value
-		//NOTE: If the player isn't pressing up or down, vAxis will be 0 and there will be no movement
-		//		based on input. However, yVelocity will still move the player downward if they are
-		//		not colliding with the ground anymore
-		Vector3 amountToMove = transform.forward * vAxis * moveSpeed * Time.deltaTime;
+		// Movement
+		Vector3 amountToMove = new Vector3(0,0,0);
+		if (Input.GetKey(KeyCode.W)){
+            amountToMove = transform.forward * Time.deltaTime * moveSpeed;
+			cc.Move(amountToMove);
+        }
+        if (Input.GetKey(KeyCode.S)){
+            amountToMove = transform.forward * -1 * Time.deltaTime * moveSpeed;
+			cc.Move(amountToMove);
+        }
+        if (Input.GetKey(KeyCode.A)){
+            amountToMove = transform.right * -1 * Time.deltaTime * moveSpeed;
+			cc.Move(amountToMove);
+        }
+        if (Input.GetKey(KeyCode.D)){
+            amountToMove = transform.right * Time.deltaTime * moveSpeed;
+			cc.Move(amountToMove);
+        }
+        amountToMove.y = yVelocity;
+        cc.Move(amountToMove);
+		
 
 		//Set the amount we move in the y direction to be whatever we have gotten from simulating physics
-		amountToMove.y = yVelocity;
-
-		//This will move the player according to the forward vector and the yVelocity using the
-		//CharacterController.
-		cc.Move(amountToMove);
+		//amountToMove.y = yVelocity;
+		//cc.Move(amountToMove);
 		
 		//Store our current previousIsGroundedValue (so we can do that check to see if we just
 		//landed above as described above)

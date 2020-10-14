@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlatformMovement : MonoBehaviour
 {
 
-	float movementSpeed = 0.001f; // This variable changes
-	float baseMovementSpeed = 0.005f;
-	float movementSpeedSlowed = 0.0025f;
+	float movementSpeed = 0.5f; // This variable changes
+	float baseMovementSpeed = 0.5f;
+	float movementSpeedSlowed = 0.25f;
 	float moveTimer = 3f;
 	float moveRate = 3f;
 
@@ -23,7 +23,7 @@ public class PlatformMovement : MonoBehaviour
     	// Timer 
     	moveTimer -= Time.deltaTime;
     	// Moves platform
-    	transform.Translate(Vector3.forward * movementSpeed, Space.Self);
+    	transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime, Space.Self);
     	// Slow down a little bit before changing direction
     	if (moveTimer < 0.5f && moveTimer > 0f){
     		movementSpeed = (movementSpeed > 0) ? movementSpeedSlowed : movementSpeedSlowed * -1;
@@ -36,4 +36,21 @@ public class PlatformMovement : MonoBehaviour
         	moveTimer = moveRate;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Player")) {
+			PlayerController player = other.gameObject.GetComponent<PlayerController>();
+			player.PlatformAttachedTo = this;
+			Debug.Log("Player has jumped on platform");
+		}
+	}
+	
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.CompareTag("Player")) {
+			PlayerController player = other.gameObject.GetComponent<PlayerController>();
+			player.PlatformAttachedTo = null;
+		}
+	}
 }
