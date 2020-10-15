@@ -69,6 +69,9 @@ public class PlayerController : MonoBehaviour
 
 		// Movement
 		Vector3 amountToMove = new Vector3(0,0,0);
+		if (PlatformAttachedTo != null) {
+			amountToMove += PlatformAttachedTo.DistanceMoved;
+		}
 		if (Input.GetKey(KeyCode.W)){
             amountToMove = transform.forward * Time.deltaTime * moveSpeed;
 			cc.Move(amountToMove);

@@ -4,41 +4,41 @@ using UnityEngine;
 
 public class PlatformMovement : MonoBehaviour
 {
+    // basically prof's code, couldn't get player to ride platform with what i had before
+	float freq = 1f;
+    float amp = 1.7f;
 
-	float movementSpeed = 0.5f; // This variable changes
-	float baseMovementSpeed = 0.5f;
-	float movementSpeedSlowed = 0.25f;
-	float moveTimer = 3f;
-	float moveRate = 3f;
+    float theta = 0;
 
-    // Start is called before the first frame update
+    Vector3 startPosition;
+    Vector3 previousPosition;
+    public Vector3 DistanceMoved = Vector3.zero;
+
+   
     void Start()
     {
-        
+        startPosition = transform.position;
+        previousPosition = transform.position;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-    	// Timer 
-    	moveTimer -= Time.deltaTime;
-    	// Moves platform
-    	transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime, Space.Self);
-    	// Slow down a little bit before changing direction
-    	if (moveTimer < 0.5f && moveTimer > 0f){
-    		movementSpeed = (movementSpeed > 0) ? movementSpeedSlowed : movementSpeedSlowed * -1;
-    	} else {
-    		movementSpeed = (movementSpeed > 0) ? baseMovementSpeed : baseMovementSpeed * -1;
-    	}
-    	// Changes direction after timer
-        if (moveTimer <= 0){
-        	movementSpeed *= -1;
-        	moveTimer = moveRate;
-        }
+    	theta += Time.deltaTime;
+        // mostly because of these 2 lines:
+        // I was using a timer to decide when platforms switched direction, not sin
+        Vector3 newPos = startPosition + transform.forward * Mathf.Sin(theta * freq) * amp;
+        transform.position = newPos;
+        
+     
+        DistanceMoved = transform.position - previousPosition;
+
+        previousPosition = transform.position;
     }
 
     private void OnTriggerEnter(Collider other)
 	{
+        Debug.Log("Collision detected");
 		if (other.CompareTag("Player")) {
 			PlayerController player = other.gameObject.GetComponent<PlayerController>();
 			player.PlatformAttachedTo = this;
