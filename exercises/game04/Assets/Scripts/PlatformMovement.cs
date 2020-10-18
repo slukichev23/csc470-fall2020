@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlatformMovement : MonoBehaviour
 {
-    // basically prof's code, couldn't get player to ride platform with what i had before
+    // prof's code. couldn't get player to ride platform with what i had before
 	float freq = 1f;
     float amp = 1.7f;
 
@@ -38,11 +38,9 @@ public class PlatformMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
 	{
-        Debug.Log("Collision detected");
 		if (other.CompareTag("Player")) {
 			PlayerController player = other.gameObject.GetComponent<PlayerController>();
 			player.PlatformAttachedTo = this;
-			Debug.Log("Player has jumped on platform");
 		}
 	}
 	

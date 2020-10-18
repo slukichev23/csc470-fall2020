@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
 	public PlayerController player;
+	float platformMovingCameraModifier = 0.15f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +18,15 @@ public class CameraMovement : MonoBehaviour
     	Vector3 moveCamera = player.amountToMoveC;
     	moveCamera.y = 0;
         if (player.PlatformAttachedTo != null) {
-			moveCamera += player.PlatformAttachedTo.DistanceMoved;
+			moveCamera += player.PlatformAttachedTo.DistanceMoved * platformMovingCameraModifier;
 			transform.Translate(moveCamera, Space.World);
 		}
         if (Input.GetKey(KeyCode.W)){
+        	moveCamera.z = 0;
             transform.Translate(moveCamera, Space.World);
         }
         if (Input.GetKey(KeyCode.S)){
+        	moveCamera.z = 0;
             transform.Translate(moveCamera, Space.World);
         }
     }

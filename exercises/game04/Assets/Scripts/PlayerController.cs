@@ -105,4 +105,11 @@ public class PlayerController : MonoBehaviour
 		prevIsGrounded = cc.isGrounded;
 		amountToMoveC = amountToMove;
 	}
+
+	private void OnTriggerEnter(Collider other)
+    {
+    	if (other.gameObject.CompareTag("PileOfCandyCorn")){
+    		Destroy(other.gameObject);
+   		}
+   	}
 }
