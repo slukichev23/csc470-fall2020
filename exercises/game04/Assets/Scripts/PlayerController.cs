@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
 	float gravityModifier = 0.04f;
 
 	public PlatformMovement PlatformAttachedTo;
+	public PlatformVerticalMovement PlatformAttachedToV;
+	public Vector3 amountToMoveC = new Vector3(0,0,0);
 	
 	// Start is called before the first frame update
 	void Start()
@@ -101,5 +103,6 @@ public class PlayerController : MonoBehaviour
 		//NOTE: After cc.Move() is called, cc.isGrounded is updated to relfect whether that Move()
 		//		function call collided with the ground.
 		prevIsGrounded = cc.isGrounded;
+		amountToMoveC = amountToMove;
 	}
 }
