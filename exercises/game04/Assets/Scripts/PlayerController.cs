@@ -1,6 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class PlayerController : MonoBehaviour
 	float yVelocity = 0;
 	float jumpForce = 0.05f;
 	float gravityModifier = 0.04f;
+	static int points = 0;
 
 	public PlatformMovement PlatformAttachedTo;
 	public PlatformVerticalMovement PlatformAttachedToV;
 	public Vector3 amountToMoveC = new Vector3(0,0,0);
+	public SpiderScript spider;
+	public GameObject gate;
+	public Text pointText;
 	
 	// Start is called before the first frame update
 	void Start()
@@ -27,15 +32,8 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		//float hAxis = Input.GetAxis("Horizontal");
-		//float vAxis = Input.GetAxis("Vertical");
-
-		//--- ROTATION ---
-		//Rotate on the y axis based on the hAxis value
-		//NOTE: If the player isn't pressing left or right, hAxis will be 0 and there will be no rotation
-		
-
-
+		// updates points 
+		pointText.text = points.ToString();
 		//--- DEALING WITH GRAVITY ---
 		if (!cc.isGrounded) { //If we go in this block of code, cc.isGrounded is false
 			//If we're not on the ground, apply "gravity" to yVelocity
@@ -110,6 +108,16 @@ public class PlayerController : MonoBehaviour
     {
     	if (other.gameObject.CompareTag("PileOfCandyCorn")){
     		Destroy(other.gameObject);
+    		points += 1;
+   		}
+   		if (other.gameObject.CompareTag("Key")){
+    		Destroy(other.gameObject);
+    		gate.SetActive(false);
+   		}
+   		if (other.gameObject.CompareTag("HugePileOfCandyCorn")){
+    		Destroy(other.gameObject);
+    		points += 50;
+    		spider.spiderMovement = new Vector3(0,0,1) * 0.01f;
    		}
    	}
 }

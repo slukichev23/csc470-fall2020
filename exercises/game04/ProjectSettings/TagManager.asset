@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - PileOfCandyCorn
+  - Key
+  - HugePileOfCandyCorn
+  - WinPortal
   layers:
   - Default
   - TransparentFX
