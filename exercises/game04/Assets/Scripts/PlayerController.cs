@@ -119,5 +119,6 @@ public class PlayerController : MonoBehaviour
     		points += 50;
     		spider.spiderMovement = new Vector3(0,0,1) * 0.01f;
    		}
+   		
    	}
 }
