@@ -15,7 +15,15 @@ public class MainBaseScript : MonoBehaviour
 	public bool selected = false;
     public GameObject BaseCanvas;
     public bool BuildModePowerPlant = false;
+    public bool BuildModeRefinery = false;
+    public bool BuildModeBarracks = false;
+    public bool BuildModeResearch = false;
+    public bool BuildModeWarFactory = false;
     public Button PowerPlantBtn;
+    public Button RefineryBtn;
+    public Button BarracksBtn;
+    public Button ResearchBtn;
+    public Button WarFactoryBtn;
 
     // Resource Stats
     public int money = 500;
@@ -83,11 +91,47 @@ public class MainBaseScript : MonoBehaviour
         Tech level: N/A
         */
         if (money >= 100 && metals >= 10){
-            PowerPlantBtn.image.color = Color.green;
+            //PowerPlantBtn.image.color = Color.green;
             BuildModePowerPlant = true;
             money -= 100;
             metals -= 10;
             power += 25;
+            selected = false;
+        }
+    }
+    public void SetBuildModeRefinery(){
+        if (money >= 250 && metals >= 15 && power >= 25){
+            BuildModeRefinery = true;
+            money -= 250;
+            metals -= 15;
+            power -= 25;
+            selected = false;
+        }
+    }
+    public void SetBuildModeBarracks(){
+        if (money >= 150 && metals >= 10 && power >= 15){
+            BuildModeBarracks = true;
+            money -= 150;
+            metals -= 10;
+            power -= 15;
+            selected = false;
+        }
+    }
+    public void SetBuildModeResearch(){
+        if (money >= 500 && metals >= 50 && power >= 100){
+            BuildModeResearch = true;
+            money -= 500;
+            metals -= 50;
+            power -= 100;
+            selected = false;
+        }
+    }
+    public void SetBuildModeWarFactory(){
+        if (money >= 300 && metals >= 30 && power >= 50){
+            BuildModeWarFactory = true;
+            money -= 300;
+            metals -= 30;
+            power -= 50;
             selected = false;
         }
     }

@@ -165,8 +165,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00083923, y: 195.42}
-  m_SizeDelta: {x: 800.0016, y: 100.48563}
+  m_AnchoredPosition: {x: -0.00083923, y: 197.36}
+  m_SizeDelta: {x: 800.0016, y: 104.36908}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &99089126
 MonoBehaviour:
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 233254825}
   - component: {fileID: 233254824}
   m_Layer: 5
-  m_Name: Button (5)
+  m_Name: Research Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -316,11 +316,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1180098797}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -83.42, y: -62.056}
+  m_AnchoredPosition: {x: -0.000019133, y: -58.6}
   m_SizeDelta: {x: 70.98895, y: 70.41062}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &233254824
@@ -365,7 +365,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 233254825}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1864540180}
+        m_TargetAssemblyTypeName: MainBaseScript, Assembly-CSharp
+        m_MethodName: SetBuildModeResearch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &233254825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,8 +398,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b709be6cebca27d4498a9f689fd2cfc8, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -417,7 +429,7 @@ GameObject:
   - component: {fileID: 281588511}
   - component: {fileID: 281588510}
   m_Layer: 5
-  m_Name: Button (4)
+  m_Name: War Factory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -435,11 +447,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1180098797}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -62.056}
+  m_AnchoredPosition: {x: -83.42, y: -58.6}
   m_SizeDelta: {x: 70.98895, y: 70.41103}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &281588510
@@ -484,7 +496,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 281588511}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1864540180}
+        m_TargetAssemblyTypeName: MainBaseScript, Assembly-CSharp
+        m_MethodName: SetBuildModeWarFactory
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &281588511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -505,8 +529,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 91cae74ca9f8ca84a9492474c334e4a5, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1155,7 +1179,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 15
+    m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -1441,7 +1465,7 @@ GameObject:
   - component: {fileID: 1121255586}
   - component: {fileID: 1121255585}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Refinery Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1508,7 +1532,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1121255586}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1864540180}
+        m_TargetAssemblyTypeName: MainBaseScript, Assembly-CSharp
+        m_MethodName: SetBuildModeRefinery
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1121255586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1529,8 +1565,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: def85ad06b367c74bb58f401e67320b4, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1827,7 +1863,6 @@ RectTransform:
   - {fileID: 282933994}
   - {fileID: 1121255584}
   - {fileID: 1725953180}
-  - {fileID: 2080565996}
   - {fileID: 281588509}
   - {fileID: 233254823}
   m_Father: {fileID: 690879984}
@@ -2182,7 +2217,7 @@ GameObject:
   - component: {fileID: 1725953182}
   - component: {fileID: 1725953181}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Barracks Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2249,7 +2284,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1725953182}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1864540180}
+        m_TargetAssemblyTypeName: MainBaseScript, Assembly-CSharp
+        m_MethodName: SetBuildModeBarracks
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1725953182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2270,8 +2317,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 4f5aeaba11356b54f9432828a6127174, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2319,6 +2366,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainBase: {fileID: 1864540177}
   PowerPlantPrefab: {fileID: 2368844380033064295, guid: 6b2a7d37ade394c40a2f55961c8613bc, type: 3}
+  RefineryPrefab: {fileID: 1744017308885817344, guid: afa57663dd6e6fb44a68504d2612332b, type: 3}
+  BarracksPrefab: {fileID: 731678160217712835, guid: fcea873e0f0e27944a4cee9d2bd1f783, type: 3}
+  ResearchPrefab: {fileID: 1529383293670310548, guid: 51508dfc70c28324daa1a40c9eb4a484, type: 3}
+  WarFactoryPrefab: {fileID: 3344365190850017973, guid: 968ac6b389c6a5b4993276046c9e23a8, type: 3}
 --- !u!4 &1827746286
 Transform:
   m_ObjectHideFlags: 0
@@ -2405,7 +2456,15 @@ MonoBehaviour:
   selected: 0
   BaseCanvas: {fileID: 690879980}
   BuildModePowerPlant: 0
+  BuildModeRefinery: 0
+  BuildModeBarracks: 0
+  BuildModeResearch: 0
+  BuildModeWarFactory: 0
   PowerPlantBtn: {fileID: 282933995}
+  RefineryBtn: {fileID: 1121255585}
+  BarracksBtn: {fileID: 1725953181}
+  ResearchBtn: {fileID: 233254824}
+  WarFactoryBtn: {fileID: 281588510}
   money: 500
   power: 0
   metals: 50
@@ -2415,125 +2474,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3e4d00bc5d7ca2f4b809f4abcc818dcb, type: 3}
   m_PrefabInstance: {fileID: 1332892611}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2080565995
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2080565996}
-  - component: {fileID: 2080565999}
-  - component: {fileID: 2080565998}
-  - component: {fileID: 2080565997}
-  m_Layer: 5
-  m_Name: Button (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2080565996
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080565995}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1180098797}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 84.5, y: -62.057}
-  m_SizeDelta: {x: 70.98895, y: 70.40786}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2080565997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080565995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2080565998}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2080565998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080565995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &2080565999
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080565995}
-  m_CullTransparentMesh: 0
 --- !u!1 &2103949741
 GameObject:
   m_ObjectHideFlags: 0
