@@ -415,9 +415,11 @@ GameObject:
   m_Component:
   - component: {fileID: 614256232613796084}
   - component: {fileID: 415423851501518058}
+  - component: {fileID: 1242475722163870749}
+  - component: {fileID: 6197876352936755250}
   m_Layer: 0
   m_Name: Crystal Refinery
-  m_TagString: Untagged
+  m_TagString: Refinery
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,6 +466,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 16.08, y: 13.66, z: 7.9}
   m_Center: {x: -4.83, y: 7.08, z: 0}
+--- !u!114 &1242475722163870749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744017308885817344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3180c2d3196117479fb5f544fdc90a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HarvesterPrefab: {fileID: 3647594092672355055, guid: 649375f7759b9704eb5a0ec0d6aeb915, type: 3}
+--- !u!65 &6197876352936755250
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744017308885817344}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6, y: 4, z: 8.08}
+  m_Center: {x: -13.78, y: 2, z: 0}
 --- !u!1 &3672783717116794087
 GameObject:
   m_ObjectHideFlags: 0

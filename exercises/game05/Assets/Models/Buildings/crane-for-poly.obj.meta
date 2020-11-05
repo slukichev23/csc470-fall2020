@@ -3,7 +3,12 @@ guid: 3e4d00bc5d7ca2f4b809f4abcc818dcb
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: yello_metal
+    second: {fileID: 2100000, guid: 9dd69abefbef1da449a407dbfdb0103a, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

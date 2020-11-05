@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - MainBase
   - BuildUI
+  - Refinery
+  - Crystal
+  - Harvester
   layers:
   - Default
   - TransparentFX
