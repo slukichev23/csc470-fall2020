@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac3335b5a99acf49af6048744823e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 50
   rotateSpeed: 90
   CrystalCapacity: 3
   crystals: 0

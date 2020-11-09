@@ -11,7 +11,7 @@ public class RefineryScipt : MonoBehaviour
    	public int RefinedMetal = 0;
     void Start()
     {
-        Instantiate(HarvesterPrefab, new Vector3(this.transform.position.x - 20, this.transform.position.y, this.transform.position.z), Quaternion.identity);
+        Instantiate(HarvesterPrefab, new Vector3(this.transform.position.x - 15, this.transform.position.y, this.transform.position.z), Quaternion.identity);
         hs = HarvesterPrefab.GetComponent<HarvesterScript>();
     }
 

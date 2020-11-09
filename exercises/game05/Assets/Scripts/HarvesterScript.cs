@@ -8,7 +8,7 @@ public class HarvesterScript : MonoBehaviour
 	bool MoveOrderGiven = false;
 	RaycastHit StoredHit;
     // stats
-    public float speed = 100f;
+    public float speed = 25f;
     public float rotateSpeed = 90f;
     public int CrystalCapacity;
     public int crystals;
@@ -37,6 +37,9 @@ public class HarvesterScript : MonoBehaviour
         this.transform.position = new Vector3(this.transform.position.x - 8, this.transform.position.y, this.transform.position.z);
         main = GameObject.FindWithTag("MainBase");
         mb = main.GetComponent<MainBaseScript>();
+        mb.CrystalMeter.fillAmount = 0f;
+        
+        //HarvesterPanel.SetActive(false);
 
     }
 
@@ -59,7 +62,9 @@ public class HarvesterScript : MonoBehaviour
                         // do stuff
                         Debug.Log("Clicked on harvester");
                         selected = true;
-                        //BaseCanvas.SetActive(true);
+                        mb.HarvesterPanel.SetActive(true);
+                        
+                        
                     }
                 }
             } 
@@ -74,6 +79,7 @@ public class HarvesterScript : MonoBehaviour
                 if (Physics.Raycast(ray, out hit)) {
                 	StoredHit = hit;
                     selected = false;
+                    mb.HarvesterPanel.SetActive(false);
                     //BaseCanvas.SetActive(false);
                     //Debug.Log("Sent out a move order");
 
@@ -94,6 +100,7 @@ public class HarvesterScript : MonoBehaviour
     			Destroy(other.gameObject);
     			crystals += 1;
                 metals += 1;
+                mb.CrystalMeter.fillAmount += (1f/3f);
     		}	
     	
     	} else {
@@ -110,6 +117,7 @@ public class HarvesterScript : MonoBehaviour
                 crystals = 0;
                 metals = 0;
                 Debug.Log("Harvester now has " + GetCrystals() + " crystals");
+                mb.CrystalMeter.fillAmount = 0f;
                 mb.updateStatsUI();
                 
                 

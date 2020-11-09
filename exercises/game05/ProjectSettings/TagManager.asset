@@ -10,6 +10,8 @@ TagManager:
   - Refinery
   - Crystal
   - Harvester
+  - CrystalMeterImage
+  - Panel
   layers:
   - Default
   - TransparentFX

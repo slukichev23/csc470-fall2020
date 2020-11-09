@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public GameObject MainBase;
     public GameObject PowerPlantPrefab;
     public GameObject RefineryPrefab;
-    public GameObject BarracksPrefab;
     public GameObject ResearchPrefab;
     public GameObject WarFactoryPrefab;
     MainBaseScript mb;
@@ -44,16 +43,6 @@ public class GameManager : MonoBehaviour
     		else
     		{
     			mb.RefineryBtn.image.color = Color.white;
-    		}
-    	}
-    	if (mb.BuildModeBarracks == false){
-    		if (!(mb.money >= 150 && mb.metals >= 10 && mb.power >= 15))
-    		{
-    			mb.BarracksBtn.image.color = Color.red;
-    		}
-    		else
-    		{
-    			mb.BarracksBtn.image.color = Color.white;
     		}
     	}
     	if (mb.BuildModeResearch == false){
@@ -102,18 +91,6 @@ public class GameManager : MonoBehaviour
                     Instantiate(RefineryPrefab, hit.point, Quaternion.identity);
                     mb.updateStatsUI();
                     mb.RefineryBtn.image.color = Color.white;
-                }
-            }
-        } else if (mb.BuildModeBarracks){
-        	if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit)) {
-                    Debug.Log("Barracks built");
-                    mb.BuildModeBarracks = false;
-                    Instantiate(BarracksPrefab, hit.point, Quaternion.identity);
-                    mb.updateStatsUI();
-                    mb.BarracksBtn.image.color = Color.white;
                 }
             }
         } else if (mb.BuildModeResearch){

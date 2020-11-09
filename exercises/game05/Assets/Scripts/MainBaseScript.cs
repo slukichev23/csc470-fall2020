@@ -21,9 +21,10 @@ public class MainBaseScript : MonoBehaviour
     public bool BuildModeWarFactory = false;
     public Button PowerPlantBtn;
     public Button RefineryBtn;
-    public Button BarracksBtn;
     public Button ResearchBtn;
     public Button WarFactoryBtn;
+    public GameObject HarvesterPanel;
+    public Image CrystalMeter;
 
     // Resource Stats
     public int money = 500;
@@ -36,6 +37,8 @@ public class MainBaseScript : MonoBehaviour
     {
         BaseCanvas.SetActive(false);
         updateStatsUI();
+        
+        HarvesterPanel.SetActive(false);
         
     }
 
@@ -108,15 +111,6 @@ public class MainBaseScript : MonoBehaviour
             selected = false;
         }
     }
-    public void SetBuildModeBarracks(){
-        if (money >= 150 && metals >= 10 && power >= 15){
-            BuildModeBarracks = true;
-            money -= 150;
-            metals -= 10;
-            power -= 15;
-            selected = false;
-        }
-    }
     public void SetBuildModeResearch(){
         if (money >= 500 && metals >= 50 && power >= 100){
             BuildModeResearch = true;
@@ -142,4 +136,6 @@ public class MainBaseScript : MonoBehaviour
         metalsText.text = metals.ToString();
         techlvlText.text = techlvl.ToString();
     }
+
+
 }
