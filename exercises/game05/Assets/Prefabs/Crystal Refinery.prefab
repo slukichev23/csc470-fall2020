@@ -479,6 +479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HarvesterPrefab: {fileID: 3647594092672355055, guid: 649375f7759b9704eb5a0ec0d6aeb915, type: 3}
+  RefinedCrystal: 0
+  RefinedMetal: 0
 --- !u!65 &6197876352936755250
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -490,8 +492,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.6, y: 4, z: 8.08}
-  m_Center: {x: -13.78, y: 2, z: 0}
+  m_Size: {x: 9.26, y: 8.3, z: 8.08}
+  m_Center: {x: -17.55, y: 4.3, z: 0}
 --- !u!1 &3672783717116794087
 GameObject:
   m_ObjectHideFlags: 0

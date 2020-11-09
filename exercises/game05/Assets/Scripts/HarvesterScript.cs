@@ -14,11 +14,25 @@ public class HarvesterScript : MonoBehaviour
     public int crystals = 0;
     Vector3 StartPosition;
     CharacterController cc;
+    public GameObject main;
+    MainBaseScript mb;
+
+    public int GetCrystals(){
+        return crystals;
+    }
+
+    public void SetCrystals(int c){
+        crystals = c;
+    }
+
     void Start()
     {
     	cc = GetComponent<CharacterController>();
         StartPosition = this.transform.position;
         this.transform.position = new Vector3(this.transform.position.x - 8, this.transform.position.y, this.transform.position.z);
+        main = GameObject.FindWithTag("MainBase");
+        mb = main.GetComponent<MainBaseScript>();
+
     }
 
     // Update is called once per frame
@@ -38,7 +52,7 @@ public class HarvesterScript : MonoBehaviour
                     // if what it hit has the tag that i specified
                     if (hit.collider.gameObject.tag == "Harvester"){
                         // do stuff
-                        Debug.Log("Clicked on harvester");
+                        //Debug.Log("Clicked on harvester");
                         selected = true;
                         //BaseCanvas.SetActive(true);
                     }
@@ -55,7 +69,7 @@ public class HarvesterScript : MonoBehaviour
                 	StoredHit = hit;
                     selected = false;
                     //BaseCanvas.SetActive(false);
-                    Debug.Log("Sent out a move order");
+                    //Debug.Log("Sent out a move order");
 
                     // MAKE UNIT GO TO POINT ON GROUND
                     MoveOrderGiven = true;
@@ -75,10 +89,20 @@ public class HarvesterScript : MonoBehaviour
     			crystals += 1;
     		}	
     	
-    	}
-    	if (crystals == 3){
-    		MoveTowardsTarget(StartPosition);
-    	}
+    	} else {
+            StoredHit.point = StartPosition;
+            MoveOrderGiven = true;
+
+        }
+        if (other.gameObject.CompareTag("Refinery"))
+            {
+                Debug.Log("Harvester has " + GetCrystals() + " crystals");
+                mb.money += (crystals * 50);
+                crystals = 0;
+                Debug.Log("Harvester now has " + GetCrystals() + " crystals");
+                mb.updateStatsUI();
+            }
+    	
     }
      void MoveTowardsTarget(Vector3 target) {
       
