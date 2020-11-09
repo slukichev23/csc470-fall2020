@@ -44,7 +44,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 5.85
   m_Radius: 4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -67,6 +67,8 @@ MonoBehaviour:
   rotateSpeed: 90
   CrystalCapacity: 3
   crystals: 0
+  metals: 0
+  main: {fileID: 0}
 --- !u!1001 &6086969435001669219
 PrefabInstance:
   m_ObjectHideFlags: 0

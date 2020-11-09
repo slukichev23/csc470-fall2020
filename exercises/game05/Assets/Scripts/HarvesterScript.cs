@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class HarvesterScript : MonoBehaviour
 {
-	bool selected = false;
+	bool selected;
 	bool MoveOrderGiven = false;
 	RaycastHit StoredHit;
     // stats
     public float speed = 100f;
     public float rotateSpeed = 90f;
-    public int CrystalCapacity = 3;
-    public int crystals = 0;
+    public int CrystalCapacity;
+    public int crystals;
+    public int metals;
     Vector3 StartPosition;
     CharacterController cc;
     public GameObject main;
@@ -27,6 +28,10 @@ public class HarvesterScript : MonoBehaviour
 
     void Start()
     {
+        int metals = 0;
+        bool selected = false;
+        int CrystalCapacity = 3;
+        int crystals = 0;
     	cc = GetComponent<CharacterController>();
         StartPosition = this.transform.position;
         this.transform.position = new Vector3(this.transform.position.x - 8, this.transform.position.y, this.transform.position.z);
@@ -50,15 +55,16 @@ public class HarvesterScript : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     // if what it hit has the tag that i specified
-                    if (hit.collider.gameObject.tag == "Harvester"){
+                    if (hit.collider.gameObject == this.gameObject){
                         // do stuff
-                        //Debug.Log("Clicked on harvester");
+                        Debug.Log("Clicked on harvester");
                         selected = true;
                         //BaseCanvas.SetActive(true);
                     }
                 }
             } 
-        } else {
+        } 
+        else {
             // if selected is TRUE
             // if you hit anything but the UI or void
             if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) {
@@ -87,23 +93,30 @@ public class HarvesterScript : MonoBehaviour
     		{
     			Destroy(other.gameObject);
     			crystals += 1;
+                metals += 1;
     		}	
     	
     	} else {
             StoredHit.point = StartPosition;
             MoveOrderGiven = true;
+            //selected = false;
 
         }
         if (other.gameObject.CompareTag("Refinery"))
             {
                 Debug.Log("Harvester has " + GetCrystals() + " crystals");
                 mb.money += (crystals * 50);
+                mb.metals += (metals * 3);
                 crystals = 0;
+                metals = 0;
                 Debug.Log("Harvester now has " + GetCrystals() + " crystals");
                 mb.updateStatsUI();
+                
+                
             }
     	
     }
+
      void MoveTowardsTarget(Vector3 target) {
       
       //Get the difference.
@@ -117,6 +130,7 @@ public class HarvesterScript : MonoBehaviour
 			transform.rotation = Quaternion.LookRotation(newDirection);
 			
 			cc.Move(transform.forward * speed * Time.deltaTime);
+            cc.Move(new Vector3(0,-9.81f,0));
 		} else {
 			MoveOrderGiven = false;
 		}
