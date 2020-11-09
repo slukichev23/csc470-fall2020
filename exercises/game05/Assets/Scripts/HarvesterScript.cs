@@ -63,6 +63,8 @@ public class HarvesterScript : MonoBehaviour
                         Debug.Log("Clicked on harvester");
                         selected = true;
                         mb.HarvesterPanel.SetActive(true);
+                        mb.CrystalMeter.fillAmount = this.crystals / 3f;
+
                         
                         
                     }
@@ -100,7 +102,9 @@ public class HarvesterScript : MonoBehaviour
     			Destroy(other.gameObject);
     			crystals += 1;
                 metals += 1;
-                mb.CrystalMeter.fillAmount += (1f/3f);
+                if (this.selected){
+                    mb.CrystalMeter.fillAmount = this.crystals / 3f;
+                }
     		}	
     	
     	} else {
@@ -117,7 +121,10 @@ public class HarvesterScript : MonoBehaviour
                 crystals = 0;
                 metals = 0;
                 Debug.Log("Harvester now has " + GetCrystals() + " crystals");
-                mb.CrystalMeter.fillAmount = 0f;
+                if (this.selected){
+                    mb.CrystalMeter.fillAmount = this.crystals / 3f;
+                }
+                
                 mb.updateStatsUI();
                 
                 
