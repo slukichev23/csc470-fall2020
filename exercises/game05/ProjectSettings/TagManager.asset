@@ -12,6 +12,7 @@ TagManager:
   - Harvester
   - CrystalMeterImage
   - Panel
+  - WarFactory
   layers:
   - Default
   - TransparentFX

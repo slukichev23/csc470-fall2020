@@ -116,8 +116,8 @@ public class HarvesterScript : MonoBehaviour
         if (other.gameObject.CompareTag("Refinery"))
             {
                 Debug.Log("Harvester has " + GetCrystals() + " crystals");
-                mb.money += (crystals * 50);
-                mb.metals += (metals * 3);
+                mb.money += (crystals * 75);
+                mb.metals += (metals * 4);
                 crystals = 0;
                 metals = 0;
                 Debug.Log("Harvester now has " + GetCrystals() + " crystals");
