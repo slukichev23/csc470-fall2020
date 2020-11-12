@@ -147,6 +147,8 @@ public class GameManager : MonoBehaviour
                     mb.BuildModeResearch = false;
                     Instantiate(ResearchPrefab, hit.point, Quaternion.identity);
                     mb.updateStatsUI();
+
+                    mb.ObjetiveCompleted = true;
                     
                 }
             }

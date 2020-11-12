@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MainBaseScript : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class MainBaseScript : MonoBehaviour
     public Text powerText;
     public Text metalsText;
     public Text techlvlText;
+    public Text TimeRemaining;
 	public bool selected = false;
 	public bool WfcSelected = false;
     public GameObject BaseCanvas;
@@ -35,12 +37,15 @@ public class MainBaseScript : MonoBehaviour
     public bool BuildModeTankBuster = false;
     public bool BuildModeMachineGun = false;
     public bool BuildModeLaserTurret = false;
+    public float TimeForMission = 80f;
 
     // Resource Stats
     public int money = 500;
     public int power = 0;
     public int metals = 50;
     public int techlvl = 0;
+
+    public bool ObjetiveCompleted = false;
 
 
     void Start()
@@ -56,7 +61,18 @@ public class MainBaseScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    	if (TimeForMission < 0){
+    		if (ObjetiveCompleted){
+    			// scene manager to win screen
+                SceneManager.LoadScene("WinScene");
+    		} else {
+    			// lost screen
+                SceneManager.LoadScene("LossScene");
+    		}
+    	}
+        TimeRemaining.text = TimeForMission.ToString();
+        TimeForMission -= Time.deltaTime;
+
         // ALL OF THIS IF STATEMENT --> UNDER IF NOT SELECTED SO WE CAN INTERACT WITH UI BUTTONS
         if (selected == false){
             if (Input.GetMouseButtonDown(0))
@@ -217,7 +233,7 @@ public class MainBaseScript : MonoBehaviour
         moneyText.text = money.ToString();
         powerText.text = power.ToString();
         metalsText.text = metals.ToString();
-        techlvlText.text = techlvl.ToString();
+        
     }
 
 
