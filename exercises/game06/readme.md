@@ -14,18 +14,18 @@ attacking you, you must make sure that your flashlight cannot be
 turned off for too long. Keep in mind, though, that it does have 
 a limited battery.
 ## 3 Targets
-**Low bar:**
+### Low bar:
 * The haunted house has lots of furniture, 1 of which contains the key.
 * There is a UI meter for the flashlight's battery 
 * Sound effect plus UI flash of some sort to indicate taking damage 
 * There will be 1 paranormal being that will try to kill you 
 * Running out of battery will immediately spawn in the paranormal being
-**Medium bar**
+### Medium bar
 * Boxes / cabinets in the house can be opened and will have items inside
 * Items include notes for the player to read and batteries
 * Clicking on paintings will trigger certain events
 * Paranormal beings will randomly come into the player's view to spook them
-**High bar**
+### High bar
 * Looking directly at paranormal beings will give the player blurred vision and other negative debuffs
 * While walking, the player camera bobs up and down slightly
 * An attempt at jump scare events that don't actually kill the player
