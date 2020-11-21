@@ -3,16 +3,16 @@ The goal of this horror game is to find the key
 that lets you escape the haunted house you've found yourself
 trapped in without dying. The house is a series of corridors with various
 furniture and paintings with minimal lighting. House will be made using probuilder.
+To see where you're going and to prevent paranormal beings from 
+attacking you, you must make sure that your flashlight cannot be 
+turned off for too long. Keep in mind, though, that it does have 
+a limited battery.
 Sound effects will be added for:
 * Footsteps
 * Opening doors / Cabinets
 * Taking damage
 * Ambient sounds
 * Turning your flashlight on and off
-To see where you're going and to prevent paranormal beings from 
-attacking you, you must make sure that your flashlight cannot be 
-turned off for too long. Keep in mind, though, that it does have 
-a limited battery.
 ## 3 Targets
 ### Low bar:
 * The haunted house has lots of furniture, 1 of which contains the key.
