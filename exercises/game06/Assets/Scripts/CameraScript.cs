@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public float speedH = 2.0f;
-    public float speedV = 2.0f;
+    public float speedH = 1.75f;
+    public float speedV = 1.75f;
 
     private float yaw = 0.0f;
     private float pitch = 0.0f;
@@ -20,7 +20,7 @@ public class CameraScript : MonoBehaviour
         yaw += speedH * Input.GetAxis("Mouse X");
         pitch -= speedV * Input.GetAxis("Mouse Y");
 
-        yaw = Mathf.Clamp(yaw, -160f, 160f);
+        //yaw = Mathf.Clamp(yaw, -160f, 160f);
         pitch = Mathf.Clamp(pitch, -60f, 90f);
      
 
