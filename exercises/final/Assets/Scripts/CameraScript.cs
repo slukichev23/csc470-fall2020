@@ -4,29 +4,36 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    public float speedH = 1.75f;
-    public float speedV = 1.75f;
+    public float mouseSens = 50f;
+    public Transform playerLook;
+    float rotationX = 0f;
 
-    private float yaw = 0.0f;
-    private float pitch = 0.0f;
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-        yaw += speedH * Input.GetAxis("Mouse X");
-        pitch -= speedV * Input.GetAxis("Mouse Y");
+        // mouse x and y component input
+        float mouseX = mouseSens * Input.GetAxis("Mouse X");
+        float mouseY = mouseSens * Input.GetAxis("Mouse Y");
 
-        //yaw = Mathf.Clamp(yaw, -160f, 160f);
-        pitch = Mathf.Clamp(pitch, -60f, 90f);
-     
+        // rotating camera but not body
+        rotationX -= mouseY; // += rotates in the opposite direction that i want
+        // clamping rotation so player's neck doesn't snap
+        rotationX = Mathf.Clamp(rotationX, -80f, 60f);
+        transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
 
-        transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        // rotating body but not camera
+        playerLook.Rotate(Vector3.up * mouseX);
 
-        Cursor.lockState = CursorLockMode.Locked;
+
+
+
+
+        
 
     }
 }

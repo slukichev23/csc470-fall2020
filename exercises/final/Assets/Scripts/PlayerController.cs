@@ -18,13 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         // applies gravity
         cc.Move(new Vector3(0, -9.81f, 0));
-        // rotates player with camera (which is controlled by mouse)
-        transform.rotation = camera.transform.rotation;
-   
-        // gets forward and backward input
-        //float vAxis = Input.GetAxis("Vertical");
 
-        //cc.Move(vAxis * transform.forward * movementSpeed * Time.deltaTime);
         // Movement
         Vector3 amountToMove = new Vector3(0, 0, 0);
         if (Input.GetKey(KeyCode.W))
