@@ -38,3 +38,4 @@ Sound effects will be added for:
 6. 11/29 Win & lost objectives
 7. 11/30 - 12/4 More details and collectable / interactable items
 8. 12/5 - 12/9 Ambient sounds, multiple paranormal events that can be triggered
+![UI](https://github.com/slukichev23/csc470-fall2020/blob/master/exercises/final/UI.png)
