@@ -46,11 +46,11 @@ public class FlashlightScript : MonoBehaviour
         else
         {
             // correcting height
-            if (FlashLightGO.transform.position.y >= FLMaxHeight)
+            if (FlashLightGO.transform.position.y > FLMaxHeight)
             {
                 FlashLightGO.transform.position = new Vector3(FlashLightGO.transform.position.x, FLMaxHeight, FlashLightGO.transform.position.z);
             }
-            if (FlashLightGO.transform.position.y <= FLMinHeight)
+            if (FlashLightGO.transform.position.y < FLMinHeight)
             {
                 FlashLightGO.transform.position = new Vector3(FlashLightGO.transform.position.x, FLMinHeight, FlashLightGO.transform.position.z);
             }
