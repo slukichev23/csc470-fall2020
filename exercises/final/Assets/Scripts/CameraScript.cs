@@ -7,6 +7,7 @@ public class CameraScript : MonoBehaviour
     public float mouseSens = 50f;
     public Transform playerLook;
     float rotationX = 0f;
+    public GameObject FlashlightLight;
 
     void Start()
     {
@@ -25,6 +26,8 @@ public class CameraScript : MonoBehaviour
         // clamping rotation so player's neck doesn't snap
         rotationX = Mathf.Clamp(rotationX, -80f, 60f);
         transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
+        FlashlightLight.transform.rotation = this.transform.rotation;
+        
 
         // rotating body but not camera
         playerLook.Rotate(Vector3.up * mouseX);
