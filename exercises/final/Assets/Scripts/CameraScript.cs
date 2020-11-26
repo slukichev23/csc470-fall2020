@@ -6,8 +6,10 @@ public class CameraScript : MonoBehaviour
 {
     public float mouseSens = 50f;
     public Transform playerLook;
-    float rotationX = 0f;
+    float rotationY = 0f;
     public GameObject FlashlightLight;
+    public float mouseX = 0;
+    public float mouseY = 0;
 
     void Start()
     {
@@ -18,14 +20,14 @@ public class CameraScript : MonoBehaviour
     void Update()
     {
         // mouse x and y component input
-        float mouseX = mouseSens * Input.GetAxis("Mouse X");
-        float mouseY = mouseSens * Input.GetAxis("Mouse Y");
+        mouseX = mouseSens * Input.GetAxis("Mouse X");
+        mouseY = mouseSens * Input.GetAxis("Mouse Y");
 
         // rotating camera but not body
-        rotationX -= mouseY; // += rotates in the opposite direction that i want
+        rotationY -= mouseY; // += rotates in the opposite direction that i want
         // clamping rotation so player's neck doesn't snap
-        rotationX = Mathf.Clamp(rotationX, -80f, 60f);
-        transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
+        rotationY = Mathf.Clamp(rotationY, -80f, 60f);
+        transform.localRotation = Quaternion.Euler(rotationY, 0f, 0f);
         FlashlightLight.transform.rotation = this.transform.rotation;
         
 
