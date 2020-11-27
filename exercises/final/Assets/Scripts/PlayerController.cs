@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public CharacterController cc;
     float movementSpeed = 1.3f;
     
+    
     void Start()
     {
         
@@ -43,6 +44,21 @@ public class PlayerController : MonoBehaviour
         }
         cc.Move(amountToMove);
 
+        
+        FootSteps();
 
+
+    }
+    // footstep sound effects 
+    void FootSteps()
+    {
+        
+        if (cc.velocity.magnitude > 0.2f && GetComponent<AudioSource>().isPlaying == false)
+        {
+            //Debug.Log("Footsteps playing");
+            AudioSource sound = this.GetComponent<AudioSource>();
+            sound.pitch = Random.Range(0.9f, 1.05f);
+            sound.Play();
+        }
     }
 }

@@ -26,9 +26,11 @@ public class FlashlightScript : MonoBehaviour
     public float verticalPosModifier = 0.01f;
     float FLMaxHeight = 7.1f;
     float FLMinHeight = 5.7f;
+    AudioSource sound;
     void Start()
     {
         cs = cam.GetComponent<CameraScript>();
+        sound = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -62,6 +64,7 @@ public class FlashlightScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 power = !power;
+                sound.Play();
 
             }
 
