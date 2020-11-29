@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DoorScript : MonoBehaviour
 {
     AudioSource lockedSound;
+    public AudioSource openSound;
     public GameObject player;
     public GameObject interactImage;
     public Text interactText;
@@ -33,6 +35,8 @@ public class DoorScript : MonoBehaviour
                 if (GameManager.instance.hasObtainedKey)
                 {
                     // will play a sound, after which it will unlock and take player to end scene
+                    StartCoroutine(OpenDoor());
+
                 }
                 else
                 {
@@ -58,5 +62,14 @@ public class DoorScript : MonoBehaviour
     {
         interactText.text = "";
         interactImage.SetActive(false);
+    }
+    IEnumerator OpenDoor()
+    {
+        openSound.Play();
+        while (openSound.isPlaying)
+        {
+            yield return null;
+        }
+        SceneManager.LoadScene("WinScene");
     }
 }
