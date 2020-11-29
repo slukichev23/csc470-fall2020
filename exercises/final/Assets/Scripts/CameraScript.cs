@@ -13,6 +13,9 @@ public class CameraScript : MonoBehaviour
 
     void Start()
     {
+        // this looks redundant but this locks the cursor at the center of the screen
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -30,7 +33,6 @@ public class CameraScript : MonoBehaviour
         transform.localRotation = Quaternion.Euler(rotationY, 0f, 0f);
         FlashlightLight.transform.rotation = this.transform.rotation;
         
-
         // rotating body but not camera
         playerLook.Rotate(Vector3.up * mouseX);
 

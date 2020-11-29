@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public GameObject camera;
     public CharacterController cc;
     // default 1.3f
-    float movementSpeed = 4f;
+    float movementSpeed = 1.3f;
     
     
     void Start()
