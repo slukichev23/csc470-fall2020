@@ -323,7 +323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.20993042, y: -0.029953003}
+  m_AnchoredPosition: {x: -0.20993042, y: 0.33003235}
   m_SizeDelta: {x: 126.35051, y: 62.322296}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &53206068
@@ -3714,7 +3714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4201,7 +4201,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26470
+  m_Name: pb_Mesh46236
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5170,8 +5170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -56.8}
-  m_SizeDelta: {x: -775.4557, y: -386.8859}
+  m_AnchoredPosition: {x: 0, y: -59.6}
+  m_SizeDelta: {x: -775.4557, y: -418.88132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1141272525
 MonoBehaviour:
@@ -5354,8 +5354,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 323.84, y: -163.82}
-  m_SizeDelta: {x: -666.5477, y: -339.69156}
+  m_AnchoredPosition: {x: 329, y: -184.1}
+  m_SizeDelta: {x: -666.5477, y: -380.96176}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345874670
 MonoBehaviour:
