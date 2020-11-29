@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Image fadeImage;
     public float fadeRate = 0.3f;
+
+    // Player variables
+    public int health = 100;
+    public bool hasObtainedKey = false;
     private void Awake()
     {
         if (instance != null && instance != this)
