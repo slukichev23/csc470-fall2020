@@ -10,6 +10,8 @@ public class KeyScript : MonoBehaviour
     public GameObject player;
     public GameObject interactImage;
     public Text interactText;
+    // reference to ghost to activate him upon picking up key
+    public GameObject ghost;
     void Start()
     {
         
@@ -37,6 +39,7 @@ public class KeyScript : MonoBehaviour
                 interactText.text = "";
                 interactImage.SetActive(false);
                 this.gameObject.SetActive(false);
+                ghost.SetActive(true);
             }
         }
         else

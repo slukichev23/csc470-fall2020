@@ -58,8 +58,16 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("Footsteps playing");
             AudioSource sound = this.GetComponent<AudioSource>();
-            sound.pitch = Random.Range(0.9f, 1.05f);
+            sound.pitch = Random.Range(0.87f, 1.07f);
             sound.Play();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Ghost"))
+        {
+            GameManager.instance.health = 0;
         }
     }
 }
