@@ -9,7 +9,7 @@ public class NoteScript : MonoBehaviour
     public Text interactText;
     public GameObject note;
     public Text noteText;
-    float fadeRate = 0.2f;
+    float fadeRate = 1f;
     // Start is called before the first frame update
     void Start()
     {
