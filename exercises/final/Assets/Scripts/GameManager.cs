@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public Image fadeImage;
     public float fadeRate = 0.3f;
+    public float batteryLeft = 100f;
 
     // Player variables
     public GameObject player;

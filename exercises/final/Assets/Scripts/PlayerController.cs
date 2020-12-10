@@ -1,23 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public GameObject camera;
     public CharacterController cc;
-    // default 1.3f
+    public AudioSource NoBattery;
     float movementSpeed = 1.3f;
-    
-    
+    public bool oneTimeRun = true;
+    public GameObject BloodVision;
+    public Image Blood;
+    float fadeRate = 0.2f;
+    public AudioSource music;
+    public AudioSource scared;
+
+
     void Start()
     {
-        
+        music.Play();
     }
 
     
     void Update()
     {
+        if (GameManager.instance.health <= 0)
+        {
+            SceneManager.LoadScene("LossScene");
+
+        }
+        if (GameManager.instance.batteryLeft <= 0)
+        {
+            music.Stop();
+            if (oneTimeRun)
+            {
+                StartCoroutine(RunOutSound());
+            }
+            oneTimeRun = false;
+        }
         // applies gravity
         cc.Move(new Vector3(0, -9.81f, 0));
 
@@ -60,6 +82,7 @@ public class PlayerController : MonoBehaviour
             AudioSource sound = this.GetComponent<AudioSource>();
             sound.pitch = Random.Range(0.87f, 1.07f);
             sound.Play();
+            
         }
     }
 
@@ -69,5 +92,33 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.instance.health = 0;
         }
+        if (other.gameObject.CompareTag("Skeleton"))
+        {
+            Destroy(other.gameObject);
+            GameManager.instance.health -= 50;
+            BloodVision.SetActive(true);
+            StartCoroutine(fade());
+            scared.Play();
+        }
+    }
+    IEnumerator RunOutSound()
+    {
+        NoBattery.Play();
+        while (NoBattery.isPlaying)
+        {
+            yield return null;
+        }
+        SceneManager.LoadScene("LossScene");
+    }
+
+    IEnumerator fade()
+    {
+        // You can write linear code inside of this function
+        while (Blood.color.a >= 0)
+        {
+            Blood.color = new Color(Blood.color.r, Blood.color.g, Blood.color.b, Blood.color.a - fadeRate * Time.deltaTime);
+            yield return null;
+        }
+
     }
 }

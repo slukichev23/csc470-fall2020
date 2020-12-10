@@ -5,10 +5,11 @@ using UnityEngine;
 public class FinalGhostScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    float floatingSpeed = 1.62f;
+    float floatingSpeed = 1.67f;
+    public AudioSource BossMusic;
     void Start()
     {
-        
+        BossMusic.Play();
     }
 
     // Update is called once per frame
@@ -16,5 +17,10 @@ public class FinalGhostScript : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.transform.position, floatingSpeed * Time.deltaTime);
         transform.LookAt(GameManager.instance.player.transform);
+        
+        if (BossMusic.isPlaying == false)
+        {
+            BossMusic.Play();
+        }
     }
 }

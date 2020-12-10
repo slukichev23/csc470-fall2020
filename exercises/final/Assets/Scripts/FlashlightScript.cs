@@ -13,7 +13,6 @@ public class FlashlightScript : MonoBehaviour
     public float indirectIntensity = 0.3f;
     public bool power = true;
     public float batteryMax = 100f;
-    public float batteryLeft = 100f;
     // reference to battery meter
     public Image BatteryFG;
     // timer for updating battery meter
@@ -59,7 +58,7 @@ public class FlashlightScript : MonoBehaviour
         }
         
 
-        if (batteryLeft > 0)
+        if (GameManager.instance.batteryLeft > 0)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -73,13 +72,13 @@ public class FlashlightScript : MonoBehaviour
                 flashLight.intensity = directIntensity;
                 indirectLight.intensity = indirectIntensity;
                 // drains battery
-                batteryLeft -= Time.deltaTime;
+                GameManager.instance.batteryLeft -= Time.deltaTime;
                 // timer to update meter only runs when flashlight is on
                 MeterTimer -= Time.deltaTime;
                 // updates meter
                 if (MeterTimer <= 0)
                 {
-                    BatteryFG.fillAmount = batteryLeft / batteryMax;
+                    BatteryFG.fillAmount = GameManager.instance.batteryLeft / batteryMax;
                     MeterTimer = MeterRate;
                 }
             }

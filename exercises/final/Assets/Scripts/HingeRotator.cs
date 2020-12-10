@@ -44,7 +44,15 @@ public class HingeRotator : MonoBehaviour
        
         if (Vector3.Distance(this.transform.position, player.transform.position) < 4)
         {
-            interactText.text = "Open";
+            if (rotationSpeed > 0)
+            {
+                interactText.text = "Open";
+            }
+            else
+            {
+                interactText.text = "Close";
+            }
+            
             interactImage.SetActive(true);
             // player can only attempt to open door if they're within 2 units
             if (Input.GetKey(KeyCode.F))

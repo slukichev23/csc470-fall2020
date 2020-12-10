@@ -28,6 +28,15 @@ public class DoorScript : MonoBehaviour
         if (Vector3.Distance(this.transform.position, player.transform.position) < 2)
         {
             interactText.text = "Open";
+            if (GameManager.instance.hasObtainedKey)
+            {
+                interactText.color = Color.green;
+            }
+            else
+            {
+                interactText.color = Color.red;
+            }
+
             interactImage.SetActive(true);
             // player can only attempt to open door if they're within 2 units
             if (Input.GetKey(KeyCode.F))
@@ -52,6 +61,7 @@ public class DoorScript : MonoBehaviour
         else
         {
             interactText.text = "";
+            interactText.color = Color.white;
             interactImage.SetActive(false);
         }
             
@@ -61,6 +71,7 @@ public class DoorScript : MonoBehaviour
     private void OnMouseExit()
     {
         interactText.text = "";
+        interactText.color = Color.white;
         interactImage.SetActive(false);
     }
     IEnumerator OpenDoor()
